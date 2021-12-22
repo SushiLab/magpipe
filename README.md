@@ -5,7 +5,7 @@
 This repo contains the code behing the snakemake pipeline used for the generation of the MAGs used in this [paper](https://www.biorxiv.org/content/10.1101/2021.03.24.436479v1).
 
 ## Structure
-a
+
 - [**magpipe**](https://github.com/SushiLab/MAGPIPE_DEV/tree/master/code/magpipe): python module for the pipeline.
 - [**snakes**](https://github.com/SushiLab/MAGPIPE_DEV/tree/master/code/snakes): snakemake files.
 - [**rules**](https://github.com/SushiLab/MAGPIPE_DEV/tree/master/code/rules): the rules of the snakemake pipeline. 
@@ -17,7 +17,7 @@ a
 
 ## Installation
 
-We highly recommend using conda
+We highly recommend using conda to create a dedicated environment, as follows:
 
 ```
 conda create -n mapgipe
@@ -25,11 +25,11 @@ conda activate magpipe
 conda install snakemake
 ```
 
-For the pipeline to work, you need to install the python module as follows
+For the pipeline to work, you need to install the python module as follows:
  
 ```
 git clone git@github.com:SushiLab/magpipe.git
-cd magpipe
+cd magpipe/magpipe
 python -m pip install -r requirements.txt -e .
 ```
 
