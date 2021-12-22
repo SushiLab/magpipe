@@ -1,0 +1,10 @@
+channels:
+    - bioconda
+    - defaults
+    - conda-forge
+dependencies:
+    - checkm-genome=1.0.13
+    - pip
+    - pip:
+        - unitem==0.0.18 
+

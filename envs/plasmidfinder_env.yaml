@@ -1,0 +1,15 @@
+name: plasmidfinder
+channels:
+ - bioconda
+ - conda-forge
+ - anaconda
+dependencies:
+ - plasmidfinder 
+ - blast 
+ - zlib 
+ - biopython 
+ - tabulate 
+ - cgecore
+
+
+

@@ -1,0 +1,7 @@
+channels:
+    - bioconda
+    - conda-forge
+dependencies:
+    - java-jdk
+    - perl
+    - perl-bioperl

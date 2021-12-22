@@ -1,0 +1,13 @@
+channels:
+    - bioconda
+    - defaults
+    - conda-forge
+dependencies:
+    - python
+    - biopython
+    - pandas
+    - numpy
+    - pip
+    - pip: # replace by git+https://github.com/SushiLab/MAGPIPE_DEV/code/magpipe/
+        - -e /nfs/nas22/fs2202/biol_micro_sunagawa/Projects/DEV/MAGPIPE_DEV/code/magpipe
+        - -r /nfs/nas22/fs2202/biol_micro_sunagawa/Projects/DEV/MAGPIPE_DEV/code/magpipe/requirements.txt

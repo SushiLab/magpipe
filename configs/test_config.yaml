@@ -1,0 +1,73 @@
+# Config file to build MAGs on the Lake dataset 
+
+# List of the datasets to process
+datasets:
+    - "test_dataset"
+
+# Name of the pooled dataset for downstream analyss
+pooled_name: "test_dataset/MAGs"
+
+# If true run the debug version of the pipeline
+debug: False
+
+# Define the target rule(s) # FIXME
+# Must be among the rules, use the end of each desired independent branch
+# incl. checkm, anvi_evaluate, plot, compare, antismash...
+targets:
+    #phase_1:
+        #A:
+        #B:
+            #- "checkm"
+            #- "anvi_evaluate"
+    phase_2:
+        - "export_evaluation"
+        #- "drep"
+        #- "process_taxonomy"
+    #phase_3:
+        #- "prokka"
+        #- "antismash"
+
+
+# A summary table with datasets and associated input files
+# Expects a tab delimited file with 5 columns named
+# datasets, samples, debug, assemblies, bamfiles, backmapping
+# and containing respectively the name of the dataset, the path to the list of
+# samples, a single sample name for debugging, the path to the assemblies
+# directory (with the format {sample}_scaffolds.min1000.fasta.gz), the path
+# to the bamfiles directory (called as path/*.bam) and the number of samples
+# mapped back to each assembly
+dataset_info: "/path/to/magpipe/resources/test_dataset.tsv"
+
+# If adding external genomes to the pipeline
+external_genomes:
+
+# Output directories of the pipeline
+# The pipeline will create two subdirectories `metagenomes` and `MAGs`
+# In `metagenomes`, each `dataset` has a folder with a subfolder per `sample`
+# In `MAGs`, each bulk of genomes has a subfolder  
+output: "/path/to/desiredoutput_directory"
+
+# Definitions of the conda environments
+# uncomment to use a specific version of the dependencies
+#envs: "/path/to/magpipe/envs/versioned_envionments/"
+
+# Snakemake working directory: where environments and logs are written
+snake_workdir: "/path/to/desired/snakemake_workdir/"
+
+# Option to specify a faster drive to speed up some compute, also used for the
+# anvio databases (sql doens't work on cds but on science, i.e. ssd)
+fast_drive: "/path/to/fastdrive/magpipe_tmp/"
+
+# Filter parameters for MAGs quality
+filter:
+    completeness: 50
+    contamination: 10
+
+# Specific to the binning rule:
+# Define the binning method(s) to use. Must be implemented and defined in
+# implemented_methods.tsv
+binning:
+    - "metabat2_sensitive"
+
+# Specific to the Drep rule (between 0 and 1)
+drep_ani: 0.95

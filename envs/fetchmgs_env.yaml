@@ -1,0 +1,9 @@
+name: fetchMGs 
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - perl
+  - hmmer
+  - seqtk 

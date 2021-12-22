@@ -1,0 +1,7 @@
+channels:
+ - conda-forge
+ - bioconda
+ - anaconda
+dependencies:
+ - lapack
+ - julia

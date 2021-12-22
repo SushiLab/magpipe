@@ -1,0 +1,14 @@
+name: comparem
+channels:
+    - bioconda
+    - defaults
+    - conda-forge
+dependencies:
+    - python=2.7 
+    - prodigal>=2.6.2
+    - diamond>=0.9.0
+    - scipy
+    - coreutils
+    - pip
+    - pip:
+        - comparem==0.0.23 

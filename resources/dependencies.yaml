@@ -1,0 +1,87 @@
+# This file is part of the magpipe pipeline for mag building
+# It references the non-conda dependencies of the pipeline
+# They are either installed locally (see instructions) or through the module system
+
+# Some conda installations may need some additional setup:
+checkm: # This is a placeholder
+# conda activate the environment (see first snakemake run)
+# checkm data setRoot /nfs/cds-shini.ethz.ch/exports/biol_micro_cds_gr_sunagawa/Databases/CHECKM/jan_2018
+
+antismash: "ml purge; ml antiSMASH; antismash"
+
+# Needs a modified version of prokka to keep the contig names
+prokka: "~/opt/prokka-1.14.5-modified/bin/prokka"
+#prokka: "/cluster/scratch/paolil/opt/prokka-1.14.5-modified/bin/prokka"
+
+# GTDBtk can be tricky with the sge queue, so often ends up being ran manually
+# to install through conda, get the environment going and link the database you want to use
+# without a new db release, just update thee conda environment and symlink the db from the module system
+# rm -r ~/miniconda3/envs/gtdb/share/gtdbtk-1.0.2/db
+# ln -s /nfs/nas22/fs2201/biol_micro_unix_modules/modules/software/GTDBTk/0.3.1-foss-2018b-Python-2.7.15/data/ ~/miniconda3/envs/gtdb/share/gtdbtk-1.0.2/db
+# Otherwise, there is the module system, in that case, use `gtdbtk: "ml GTDBTk; gtdbtk"`
+gtdbtk: "gtdbtk"
+
+# fetchMGs 
+fetchmgs: "~/opt/fetchMGs/fetchMGs.pl"
+fetchmgs_lib: "~/opt/fetchMGs/lib/"
+
+# specI
+specI: "~/opt/specI/run_specI.sh"
+
+# Needs some manual edits in the code to fix a few things
+growthpred: "~/opt/growthpred-v1.07/growthpred-v1.07.py"
+
+# use custom because needs to set pfam 
+traitar: "~/miniconda3/envs/traitar/bin/traitar"
+
+# see https://github.com/bobeobibo/phigaro for details
+phigaro: "~/miniconda3/envs/phigaro_env/bin/phigaro"
+
+# See integron finder on github
+integron_finder: "~/miniconda3/envs/integron_finder/bin/integron_finder"
+
+# **cBar installation**
+# Clone from here: http://csbl.bmb.uga.edu/~ffzhou/cBar/
+# Activate conda environment with `cmake`,
+# load BioPerl module (`ml BioPerl`) and compile (`make`).
+# Finalise by creating a `temp` directory in the `cBar` directory.
+# Specify perl to override shebang.
+cbar: "ml purge; ml BioPerl; perl ~/opt/cBar.1.2/cBar.pl"
+
+# **VAMB installation**
+# Easy to install, see https://github.com/RasmussenLab/vamb
+# On conda now, FIXME: update the conda env
+vamb: "~/opt/vamb/run.py"
+
+# **DeepVirFinder installation**
+# Just clone from https://github.com/jessieren/DeepVirFinder
+# On lsf it seems you have to delete ~/.theano at some point (takes too much space) FIXME mv too $TMPDIR ?
+deepvirfinder: "~/opt/DeepVirFinder/dvf.py"
+
+# **Virsorter installation**
+# Create the conda environment `conda create -f magpipe/ens/virsorter_env.yaml`
+# conda activate virsorter_env
+# git clone https://github.com/simroux/VirSorter.git
+# cd VirSorter/Scripts
+# make clean
+# make
+virsorter: "perl ~/opt/VirSorter/wrapper_phage_contigs_sorter_iPlant.pl"
+# wget https://zenodo.org/record/1168727/files/virsorter-data-v2.tar.gz
+# tar -xvzf virsorter-data-v2.tar.gz
+virsorter_database: "/nfs/cds-shini.ethz.ch/exports/biol_micro_cds_gr_sunagawa/scratch/paolil/databases/virsorter/virsorter-data"
+
+# **Ccontigs installation**
+# https://github.com/Microbiology/ccontigs
+# Add the following statements to ccontigs.jl
+# `import Pkg; Pkg.add("ArgParse")`
+# `import Pkg; Pkg.add("Bio")`
+# Run the rule on the test sample to download the packages,
+# then comment the lines to run on the whole dataset.
+# Commenting is important as the program can fail is multiple instances are installing the
+# packages simultaneously (At least I think that's why it failed and why this solved it).
+# Specify `julia ccontigs.jl` to override the shebang.
+ccontig: "julia ~/opt/ccontigs/ccontigs.jl"
+
+# FIXME add installation details, see https://bitbucket.org/genomicepidemiology/plasmidfinder
+plasmidfinder_database: "/nfs/home/gehrigd/miniconda3/envs/plasmidfinder/plasmidfinder_db"
+plasmidfinder_blastdb: "/nfs/home/gehrigd/miniconda3/envs/plasmidfinder/bin/blastn"

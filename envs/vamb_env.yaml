@@ -1,0 +1,11 @@
+channels:
+    - pytorch
+    - bioconda
+    - defaults
+    - conda-forge
+dependencies:
+    - pytorch=1.0.1
+    - numpy
+    - pysam
+    - biopython
+

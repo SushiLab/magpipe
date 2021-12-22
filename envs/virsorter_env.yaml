@@ -1,0 +1,27 @@
+name: virsorter_env
+channels:
+ - bioconda
+ - conda-forge
+ - r
+ - eclarke
+dependencies:
+ - python=3.6
+ - biopython
+ - mcl=14.137
+ - muscle
+ - blast 
+ - perl-bioperl
+ - perl-file-which
+ - hmmer=3.1b2
+ - perl-parallel-forkmanager
+ - perl-list-moreutils 
+ - diamond=0.9.14
+ - mummer4
+ - bbmap=38.06
+ - r=3.5.1
+ - r-glmnet
+ - r-Rcpp
+ - bioconductor-qvalue
+ - r-optparse
+ - r-tidyverse
+ - mga

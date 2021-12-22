@@ -1,0 +1,21 @@
+channels:
+ - smaegol
+ - bioconda
+ - conda-forge
+ - jjhelmus
+ - r
+dependencies:
+ - python = 3.5
+ - plasflow
+ - tensorflow = 0.10.0rc0
+ - scikit-learn = 0.18.1
+ - numpy
+ - pandas
+ - rpy2
+ - scipy
+ - biopython
+ - python-dateutil
+ - r-base
+ - bioconductor-biostrings
+ - perl-bioperl
+ - perl-getopt-long

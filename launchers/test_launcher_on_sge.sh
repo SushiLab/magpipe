@@ -1,0 +1,1 @@
+snakemake -s ../snakes/magpipe_snake.smk --configfile ../configs/test_config.yaml -k -p -j 32 --use-conda --max-jobs-per-second 1 --resources load=140 --cluster "DIR=\$(dirname {log.qoutfile}); mkdir -p \"\${{DIR}}\"; qsub -S /bin/bash -V -cwd -o {log.qoutfile} -e {log.qerrfile} -pe smp {threads} -l h_vmem={resources.mem}M"

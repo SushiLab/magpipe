@@ -1,0 +1,2 @@
+datasets	samples	debug	assemblies	backmapping	diffcov
+test_dataset/	/path/to/input/for/test_dataset/samples.list	sample_name_for_debug_mode	/path/to/input/for/test_dataset/metagenomic_assemblies/	/path/to/input/for/test_dataset/depth_files/	number_of_samples_used_for_depth

@@ -1,0 +1,10 @@
+name: keggnog
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - diamond=0.9.30
+  - pip: # replace by git+https://github.com/...
+    - -e /nfs/nas22/fs2202/biol_micro_sunagawa/Projects/DEV/MAGPIPE_DEV/code/magpipe
+    - -r /nfs/nas22/fs2202/biol_micro_sunagawa/Projects/DEV/MAGPIPE_DEV/code/magpipe/requirements.txt
